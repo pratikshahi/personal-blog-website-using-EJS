@@ -18,9 +18,11 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res) {
   res.render("home", { homeText: homeStartingContent });
-})
+});
 
-
+app.get("/about", function (req, res) {
+  res.render("about", { aboutText: aboutContent })
+});
 
 
 
