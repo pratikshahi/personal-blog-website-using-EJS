@@ -3,5 +3,14 @@
     <p>
         <%= homeText %>
     </p>
+    <% posts.forEach(function(text){ %>
+        <h1>
+            <%= text.title %>
+        </h1>
+        <p>
+            <%= text.postText%>
+        </p>
 
-    <%- include("partials/footer") %>
+
+        <% });%>
+            <%- include("partials/footer") %>
