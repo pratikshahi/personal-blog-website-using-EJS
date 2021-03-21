@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const lodash = require("lodash");
 
 let posts = [];
 
@@ -47,14 +48,20 @@ app.post("/", function (req, res) {
 
 //espress route parameter
 app.get("/post/:postId", function (req, res) {
+
   // console.log(req.params.postId);
+  let urlText = req.params.postId;
 
   posts.forEach(function (element) {
-    if (element.title === req.params.postId) {
+
+    let elementTitle = lodash.toLower(element.title);
+    urlText = lodash.toLower(urlText);
+
+    if (elementTitle === urlText) {
       console.log("match found");
     }
     else {
-      console.log("no match found");
+      console.log("No match found");
     }
   });
 
