@@ -47,8 +47,18 @@ app.post("/", function (req, res) {
 
 //espress route parameter
 app.get("/post/:postId", function (req, res) {
-  console.log(req.params.postId);
-})
+  // console.log(req.params.postId);
+
+  posts.forEach(function (element) {
+    if (element.title === req.params.postId) {
+      console.log("match found");
+    }
+    else {
+      console.log("no match found");
+    }
+  });
+
+});
 
 
 
